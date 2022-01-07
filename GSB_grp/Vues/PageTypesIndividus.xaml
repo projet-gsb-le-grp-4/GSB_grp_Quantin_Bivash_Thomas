@@ -1,0 +1,47 @@
+﻿<Page x:Class="GSB_grp.Vues.PageTypesIndividus"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GSB_grp.Vues"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue"
+      Title="PageTypesIndividus" Loaded="Page_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Type d'individus" FontSize="30" Grid.ColumnSpan="5" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Selectionner" FontSize="20" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Modification" FontSize="20" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Text="Ajout" FontSize="20" Grid.Column="3" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Center"></TextBlock>
+        <ListBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="4" Name="lstTypeIndividus" SelectionChanged="lstTypeIndividus_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Tin_libelle}" Width="150"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox Grid.Row="2" Grid.Column="3" Height="30" Width="300" FontSize="21" Name="txtModification"></TextBox>
+        <TextBox Name="txtAjouter" Grid.Row="5" Grid.Column="3" Height="30" Width="300" FontSize="21"></TextBox>
+        <Button Name="btnAjouter" Click="btnAjouter_Click" Content="Ajouter" Grid.Row="6" Grid.Column="3" Height="30" Width="100" Background="Green" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+        <Button Name="btnModifier" Click="btnModifier_Click" Content="Modifier" Grid.Row="3" Grid.Column="3" Height="30" Width="100" Background="Green" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+    </Grid>
+</Page>

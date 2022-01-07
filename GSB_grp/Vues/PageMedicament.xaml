@@ -1,0 +1,85 @@
+﻿<Page x:Class="GSB_grp.Vues.PageMedicament"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GSB_grp.Vues"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280" Background="AliceBlue"
+      Title="PageMedicament" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.9*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" Text="Médicaments" FontSize="30" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="Selectionner" FontSize="20" VerticalAlignment="Bottom"></TextBlock>
+
+        <ListBox Name="lstMedicaments" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" SelectionChanged="lstMedicament_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Med_depotlegal}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding Med_nomcommerciale}" Width="150"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Information" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1"></TextBlock>
+
+        
+        <Border BorderThickness="1" BorderBrush="Black" Background="White" Grid.Row="2" Grid.Column="3">
+            <Border.Child>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="txtNom" TextWrapping="Wrap" Grid.Row="0"></TextBlock>
+                    <TextBlock Name="txtFamille" TextWrapping="Wrap" Grid.Row="1"></TextBlock>
+                    <TextBlock Name="txtComposition" TextWrapping="Wrap" Grid.Row="2" Grid.RowSpan="3"></TextBlock>
+                    <TextBlock Name="txtEffet" TextWrapping="Wrap" Grid.Row="5" Grid.RowSpan="3"></TextBlock>
+
+                </Grid>
+
+            </Border.Child>
+        </Border>
+
+        <TextBlock Grid.Row="3" Grid.Column="3" Text="Médicament contre indiqué" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1"></TextBlock>
+        <Border BorderThickness="1" BorderBrush="Black" Background="White" Grid.Row="4" Grid.Column="3">
+            <Border.Child>
+                <TextBlock Name="txtContreIndique" TextWrapping="Wrap"></TextBlock>
+            </Border.Child>
+        </Border>
+
+
+        <Button Click="btnModif_Click" Content="Modifier le médicament séléctionné" Name="btnModif" Grid.Column="1" Grid.Row="6" Height="40" Width="350" Background="#DC7633" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+        <Button Click="btnIns_Click" Content="Insérer un médicament" Name="btnIns" Grid.Column="1" Grid.Row="8" Height="40" Width="350" Background="Green" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+
+
+    </Grid>
+</Page>

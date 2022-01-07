@@ -1,0 +1,71 @@
+﻿<Page x:Class="GSB_grp.Vues.PageMedPerturbateur"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GSB_grp.Vues"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280" Background="AliceBlue"
+      Title="PageMedPerturbateur" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.ColumnSpan="5" Grid.Row="0" Grid.Column="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Page Medicaments perturbateur"/>
+
+        <TextBlock Text="Selectionner" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20"></TextBlock>
+        <ListBox Grid.Row="2" Grid.Column="1" Grid.RowSpan="3" Name="lstMedicaments" SelectionChanged="lstMedicaments_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Med_depotlegal}" Width="30" FontSize="12"></TextBlock>
+                        <TextBlock Text="{Binding Med_nomcommerciale}" FontSize="12"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Text="Les Medicaments perturbateur" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20"></TextBlock>
+        <ListBox Grid.Row="2" Grid.Column="3" Name="lstMedicPerturbateur" SelectionChanged="lstMedicPerturbateur_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Med_depotlegal}" Width="30" FontSize="12"></TextBlock>
+                        <TextBlock Text="{Binding Med_nomcommerciale}" FontSize="12"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Text="Les Medicaments non perturbateur" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20"></TextBlock>
+        <ListBox Grid.Row="4" Grid.Column="3" Name="lstMedicNonPerturbateur">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Med_depotlegal}" Width="30" FontSize="12"></TextBlock>
+                        <TextBlock Text="{Binding Med_nomcommerciale}" FontSize="12"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Content="Retirer" Name="btnRetirer" Click="btnRetirer_Click" Grid.Column="4" Grid.Row="2" Height="40" Width="100" Background="#DC7633" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+        <Button Content="Ajouter" Name="btnAjouter" Click="btnAjouter_Click" Grid.Column="4" Grid.Row="4" Height="40" Width="100" Background="#85C1E9" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+        <Button Content="Valider" Name="btnvALIDER" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="5" Height="40" Width="100" Background="#45B39D" Foreground="White" FontSize="18" FontWeight="Bold"></Button>
+        
+    </Grid>
+</Page>

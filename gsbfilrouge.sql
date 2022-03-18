@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 06 jan. 2022 à 21:36
+-- Généré le : ven. 18 mars 2022 à 07:24
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `dosage` (
   `dos_quantite` int(10) NOT NULL,
   `dos_unite` varchar(5) NOT NULL,
   PRIMARY KEY (`dos_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `dosage`
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `famille` (
   `fam_code` int(3) NOT NULL AUTO_INCREMENT,
   `fam_libelle` varchar(80) NOT NULL,
   PRIMARY KEY (`fam_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `famille`
@@ -150,11 +150,23 @@ CREATE TABLE IF NOT EXISTS `prescrire` (
   `tin_code` int(5) NOT NULL,
   `dos_code` int(10) NOT NULL,
   `pre_posologie` text NOT NULL,
-  PRIMARY KEY (`med_depotlegal`),
   KEY `tin_code` (`tin_code`,`dos_code`),
   KEY `med_depotlegal` (`med_depotlegal`),
-  KEY `dos_code` (`dos_code`)
+  KEY `dos_code` (`dos_code`),
+  KEY `med_depotlegal_2` (`med_depotlegal`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `prescrire`
+--
+
+INSERT INTO `prescrire` (`med_depotlegal`, `tin_code`, `dos_code`, `pre_posologie`) VALUES
+(5, 2, 4, 'ok'),
+(13, 3, 2, '5j'),
+(24, 5, 3, '1s'),
+(27, 2, 4, 'kk'),
+(24, 4, 2, '5j'),
+(13, 4, 2, '5j');
 
 -- --------------------------------------------------------
 
